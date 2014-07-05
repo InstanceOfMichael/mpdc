@@ -9,38 +9,44 @@ var Tile = new Class({
 		
 	},
 	draw: function(c){
-		//console.log(this);
-		//console.log(this);
-		//console.log(c);
-		
-		// coordinates from tilemap
-		var t_x = 0;
-		var t_y = 0;
 
-		if (this.is_wall)
-		{
-			var t_x = 24;
-			var t_y = 0;
-		}
-		
-		//throw "yeah!";
+		var source = {}; //source // from tileset
 		var size_w = 32;
 		var size_h = 32;
 		var imageObj = new Image();
 		var x = this.x;
 		var y = this.y
-		imageObj.tile = {
-			//source // from tileset
-			sx : t_x*size_w - 1,
-			sy : t_y*size_h - 1,
+		var w_s = {//wall_section
+			w : 2,
+			h : 0
+		};
+
+		var source = Object.append(source,{
+			sx : 142,
+			sy : 556,
 			sw : size_w,
-			sh : size_h,
+			sh : size_h
+		});
+
+		if (this.is_wall)
+		{
+			var source = Object.append(source,{
+				//source // from tileset
+				sx : 4 + (w_s.w * ((32+2)*4)+4) + size_w * 0,
+				sy : 0 + (w_s.h * ((32+2)*4)+4) + size_h * 0,
+				sw : size_w,
+				sh : size_h
+			});
+		}
+		
+		imageObj.tile = Object.append(source,{
 			//destination // to canvas
 			dw : size_w,
 			dh : size_h,
 			dx : x*size_w,
 			dy : y*size_h
-		}
+		});
+		
 		imageObj.onload = function (){
 			
 			/*
@@ -63,7 +69,8 @@ var Tile = new Class({
 			);
 		};
 		//imageObj.src = 'img/tiles/plains.png';
-		imageObj.src = 'img/vendor/opengameart/gauntlet-like-tiles/tiles.png';
+		//imageObj.src = 'img/vendor/opengameart/gauntlet-like-tiles/tiles.png';
+		imageObj.src = 'img/vendor/opengameart/gauntlet-like-tiles/tiles-cust.png';
 		
 		
 		return true;
