@@ -1,41 +1,45 @@
 var Tile = new Class({
 	Implements: [Events, GetSet],
 	initializeDefaults: function (){
-		this.trees = Math.floor(Math.random()*101);
+		this.trees     = Math.floor(Math.random()*101);
 		this.elevation = Math.floor(Math.random()*101) - Math.floor(Math.random()*101);
-		this.seed = Math.floor(Math.random()*1001);
+		this.seed      = Math.floor(Math.random()*1001);
+		this.guest     = null; // guest refers to the occupant object, as in a character or wall
+		this.is_wall   = 1;
+		
 	},
 	draw: function(c){
 		//console.log(this);
+		//console.log(this);
+		//console.log(c);
+		
+		// coordinates from tilemap
+		var t_x = 0;
+		var t_y = 0;
+
+		if (this.is_wall)
+		{
+			var t_x = 24;
+			var t_y = 0;
+		}
+		
+		//throw "yeah!";
 		var size_w = 32;
 		var size_h = 32;
 		var imageObj = new Image();
 		var x = this.x;
 		var y = this.y
 		imageObj.tile = {
-			//source
-			sx : 0,
-			sy : 0,
+			//source // from tileset
+			sx : t_x*size_w - 1,
+			sy : t_y*size_h - 1,
 			sw : size_w,
 			sh : size_h,
-			//destination
+			//destination // to canvas
 			dw : size_w,
 			dh : size_h,
 			dx : x*size_w,
 			dy : y*size_h
-			
-			/*
-			dx : (x*size_w/2) + (y*size_w/2),
-			dy : (y*size_h/2) - (x*size_h/2)
-			*/
-			
-			
-			/*
-			dx : (this.x*size_w + 2*this.y*size_h)/size_w * (MOUSE.getX()/10),
-			dy : (2*this.y*size_h - this.x*size_w)/size_h * (MOUSE.getY()/10)
-			//*/
-			//x : this.x * size,
-			//y : this.y * size*0.25
 		}
 		imageObj.onload = function (){
 			

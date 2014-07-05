@@ -252,9 +252,12 @@ var Map = new Class({
 		for (var x = width*-1; x < width; x++){
 			for (var y = height*-1; y < height; y++){
 				
+				var is_wall = isTileEdge(width,height,x,y);
+				
 				var tile = new Tile({
 					x:x,
 					y:y,
+					is_wall:is_wall,
 					settings:this.settings
 				});
 				//console.log(tile);
