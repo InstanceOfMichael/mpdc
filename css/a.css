@@ -1,0 +1,91 @@
+div.tile {
+	border: dotted 1px black;
+	color:black;
+	position:absolute;
+	/*background-repeat: no-repeat;*/
+	z-index: 100px;
+
+	/*unselectable*/
+	-moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+	
+}
+div.tile.selected {
+	border: dotted 1px red;
+	z-index: 400px;
+	margin-left:-1px;
+	margin-top:-1px;
+}
+
+canvas {
+	border: 2px solid #000;
+	position:absolute;
+	top:0;
+	left:0; 
+	visibility: hidden;
+}
+
+
+
+html, body {
+	margin: 0px;
+	width:100%;
+	height:100%;
+}
+body {
+	background-color:black;
+	overflow:hidden;
+
+	/*unselectable*/
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+	
+	padding: 0px;
+	border: 0px;
+	
+	position: fixed;
+	left:0px;
+	right:0px;
+
+}
+/*
+section{
+	pointer-events:none;
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+	position: fixed;
+	left:0px;
+	right:0px;
+	width:100%;
+	height:100%;
+	
+	z-index:100;
+}
+section.map{
+	pointer-events:auto;
+	overflow:hidden;
+}
+section.ui{
+	z-index:100000;
+}
+menu {
+	pointer-events:auto;
+}
+menu.zoom {
+	position: fixed;
+	top: 0px;
+	right: 0px;
+
+}
+menu.zoom li{
+	background-color: black;
+	color:white;
+}
+*/
