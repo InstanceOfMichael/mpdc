@@ -64,7 +64,7 @@ var Root_Controller = new Class({
 		//this.view_port = this.viewport();
 		
 		var c = this.canvas;
-		console.log(this.Buffers);
+	//	console.log(this.Buffers);
 		this.Buffers[1-this.DrawingBuffer].style.visibility='hidden';
 		this.Buffers[this.DrawingBuffer].style.visibility='visible';
 

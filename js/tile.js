@@ -7,8 +7,8 @@ var Tile = new Class({
 	},
 	draw: function(c){
 		//console.log(this);
-		var size_w = 128;
-		var size_h = 128*1.5;
+		var size_w = 32;
+		var size_h = 32;
 		var imageObj = new Image();
 		var x = this.x;
 		var y = this.y
@@ -21,8 +21,13 @@ var Tile = new Class({
 			//destination
 			dw : size_w,
 			dh : size_h,
+			dx : x*size_w,
+			dy : y*size_h
+			
+			/*
 			dx : (x*size_w/2) + (y*size_w/2),
 			dy : (y*size_h/2) - (x*size_h/2)
+			*/
 			
 			
 			/*
