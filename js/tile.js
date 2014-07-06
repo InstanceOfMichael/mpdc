@@ -99,7 +99,8 @@ var Tile = new Class({
 	getEast:function(){
 		return this.getAdjacentTile(0,1);
 	},
-	getAdjacentTile: function(){
+	getAdjacentTile: function(ox,oy){
+		return r.map.tiles[mapIndex(this.x + ox, this.y + oy)];
 	}
 });
 
