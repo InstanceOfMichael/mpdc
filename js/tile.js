@@ -86,6 +86,20 @@ var Tile = new Class({
 	},
 	index: function(){
 		return mapIndex(this.x,this.y);
+	},
+	getNorth:function(){
+		return this.getAdjacentTile(-1,0);
+	},
+	getSouth:function(){
+		return this.getAdjacentTile(1,0);
+	},
+	getWest:function(){
+		return this.getAdjacentTile(0,-1);
+	},
+	getEast:function(){
+		return this.getAdjacentTile(0,1);
+	},
+	getAdjacentTile: function(){
 	}
 });
 
